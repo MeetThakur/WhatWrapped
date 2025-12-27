@@ -1,0 +1,95 @@
+.upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #075e54 0%, #0b141a 100%);
+    color: white;
+}
+
+.drop-zone {
+    width: 80%;
+    max-width: 600px;
+    padding: 4rem;
+    border-radius: 20px;
+    background: rgba(37, 211, 102, 0.08);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(37, 211, 102, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.15);
+}
+
+.drop-zone.active {
+    background: rgba(37, 211, 102, 0.15);
+    border-color: #25d366;
+    box-shadow: 0 0 50px rgba(37, 211, 102, 0.3);
+    transform: scale(1.02);
+}
+
+.content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #25d366, #34e877);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+.content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.divider {
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.upload-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.upload-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    background: linear-gradient(135deg, #34e877, #25d366);
+}
+
+.upload-btn:active {
+    transform: translateY(-1px);
+}
+
+.privacy-note {
+    margin-top: 2rem;
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+.privacy-note small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.privacy-note small::before {
+    content: "🔒";
+    font-size: 1.2rem;
+}
