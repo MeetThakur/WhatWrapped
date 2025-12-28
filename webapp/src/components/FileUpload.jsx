@@ -127,21 +127,25 @@ const FileUpload = ({ onFileUpload }) => {
                     WRAPPED
                 </motion.h1>
 
-                <div
+                <label
+                    htmlFor="file-upload"
                     onDragEnter={handleDrag}
                     onDragLeave={handleDrag}
                     onDragOver={handleDrag}
                     onDrop={handleDrop}
                     style={{
+                        display: "block",
                         border: isMobile
-                            ? "2px dashed #000"
+                            ? "3px dashed #000"
                             : "3px dashed #000",
-                        backgroundColor: dragActive ? "#E6FFFF" : "#fff",
+                        backgroundColor: dragActive ? "#E6FFFF" : "#FFF9E6",
                         borderRadius: isMobile ? "16px" : "20px",
-                        padding: isMobile ? "1.5rem" : "2rem",
+                        padding: isMobile ? "2rem 1.5rem" : "2rem",
                         marginBottom: isMobile ? "1.5rem" : "2rem",
                         transition: "all 0.3s ease",
                         cursor: "pointer",
+                        WebkitTapHighlightColor: "rgba(255, 0, 85, 0.2)",
+                        userSelect: "none",
                     }}
                 >
                     <div
@@ -154,17 +158,29 @@ const FileUpload = ({ onFileUpload }) => {
                     </div>
                     <p
                         style={{
-                            fontSize: isMobile ? "1rem" : "1.1rem",
+                            fontSize: isMobile ? "1.1rem" : "1.1rem",
                             fontWeight: "bold",
                             color: "#000",
-                            marginBottom: "0",
+                            marginBottom: isMobile ? "0.5rem" : "0",
                         }}
                     >
                         {isMobile
-                            ? "Tap to select your chat file"
+                            ? "Tap here to select your chat file"
                             : "Drag & drop your chat .txt file"}
                     </p>
-                </div>
+                    {isMobile && (
+                        <p
+                            style={{
+                                fontSize: "0.85rem",
+                                color: "#666",
+                                marginTop: "0.5rem",
+                                marginBottom: "0",
+                            }}
+                        >
+                            .txt files only
+                        </p>
+                    )}
+                </label>
 
                 {!isMobile && (
                     <div
