@@ -58,7 +58,7 @@ const FileUpload = ({ onFileUpload }) => {
                 transition={{ type: "spring", duration: 0.8 }}
                 style={{
                     background: '#fff',
-                    padding: 'clamp(1rem, 5vw, 3rem)',
+                    padding: '3rem',
                     borderRadius: '32px',
                     border: '4px solid #000',
                     boxShadow: '12px 12px 0px #000',
@@ -89,12 +89,12 @@ const FileUpload = ({ onFileUpload }) => {
                     transition={{ delay: 0.2 }}
                     style={{
                         fontFamily: 'var(--font-display)',
-                        fontSize: 'clamp(1.5rem, 8vw, 3rem)',
+                        fontSize: '3.5rem',
                         fontWeight: '900',
-                        lineHeight: '1.1',
-                        marginBottom: '0.25rem',
+                        lineHeight: '1',
+                        marginBottom: '0.5rem',
                         color: '#000',
-                        textShadow: '2px 2px 0px #FF0055'
+                        textShadow: '4px 4px 0px #FF0055'
                     }}
                 >
                     YOUR CHAT
@@ -105,13 +105,13 @@ const FileUpload = ({ onFileUpload }) => {
                     transition={{ delay: 0.3 }}
                     style={{
                         fontFamily: 'var(--font-display)',
-                        fontSize: 'clamp(1.8rem, 10vw, 3rem)',
+                        fontSize: '3.5rem',
                         fontWeight: '900',
-                        lineHeight: '1.1',
-                        marginBottom: '0.75rem',
+                        lineHeight: '1',
+                        marginBottom: '2rem',
                         color: '#00F0FF',
-                        WebkitTextStroke: '1.5px #000',
-                        textShadow: '2px 2px 0px #000'
+                        WebkitTextStroke: '2px #000',
+                        textShadow: '4px 4px 0px #000'
                     }}
                 >
                     WRAPPED
@@ -126,15 +126,15 @@ const FileUpload = ({ onFileUpload }) => {
                         border: '3px dashed #000',
                         backgroundColor: dragActive ? '#E6FFFF' : '#fff',
                         borderRadius: '20px',
-                        padding: 'clamp(0.5rem, 3vw, 1.5rem)',
-                        marginBottom: '0.75rem',
+                        padding: '2rem',
+                        marginBottom: '2rem',
                         transition: 'all 0.3s ease',
                         cursor: 'pointer'
                     }}
                 >
-                    <div style={{ fontSize: 'clamp(1.5rem, 6vw, 2.5rem)', marginBottom: '0.25rem' }}>📂</div>
+                    <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📂</div>
                     <p style={{
-                        fontSize: 'clamp(0.8rem, 3vw, 1rem)',
+                        fontSize: '1.1rem',
                         fontWeight: 'bold',
                         color: '#000',
                         marginBottom: '0'
@@ -145,11 +145,11 @@ const FileUpload = ({ onFileUpload }) => {
 
                 <div className="divider" style={{
                     fontWeight: '900',
-                    margin: '0.5rem 0',
+                    margin: '1.5rem 0',
                     opacity: 0.5
                 }}>OR</div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
                     <input
                         type="file"
                         id="file-upload"
@@ -165,9 +165,9 @@ const FileUpload = ({ onFileUpload }) => {
                             display: 'inline-block',
                             background: '#FF0055',
                             color: '#fff',
-                            fontSize: '1rem',
+                            fontSize: '1.2rem',
                             fontWeight: '900',
-                            padding: '0.6rem 1.5rem',
+                            padding: '1rem 2.5rem',
                             borderRadius: '50px',
                             border: '3px solid #000',
                             boxShadow: '4px 4px 0px #000',
@@ -181,14 +181,14 @@ const FileUpload = ({ onFileUpload }) => {
 
                     <p style={{
                         margin: 0,
-                        fontSize: '0.65rem',
+                        fontSize: '0.8rem',
                         fontWeight: 'bold',
                         background: '#FFD700',
                         display: 'inline-block',
-                        padding: '0.2rem 0.5rem',
-                        borderRadius: '6px',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '8px',
                         border: '2px solid #000',
-                        boxShadow: '2px 2px 0px rgba(0,0,0,0.2)'
+                        boxShadow: '3px 3px 0px rgba(0,0,0,0.2)'
                     }}>
                         🔒 Private & Secure: Processed on device
                     </p>

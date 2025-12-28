@@ -76,7 +76,18 @@ const Slide = ({ children, active, duration = 8000, onNext }) => {
                 zIndex: 0
             }} />
 
-            <div className="slide-inner-content">
+            <div style={{
+                position: 'relative',
+                zIndex: 1,
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '2rem 1rem', // Added padding to prevent top cutoff
+                boxSizing: 'border-box'
+            }}>
                 {children}
             </div>
         </motion.div>

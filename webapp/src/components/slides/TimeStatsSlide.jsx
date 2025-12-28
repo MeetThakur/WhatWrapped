@@ -61,7 +61,6 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
 
     const chartOptions = {
         responsive: true,
-        maintainAspectRatio: false, // Allow chart to fill height
         plugins: {
             legend: { display: false },
             tooltip: {
@@ -108,14 +107,14 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
                     style={{
                         textTransform: "uppercase",
                         letterSpacing: "0.1em",
-                        fontSize: "0.9rem",
+                        fontSize: "1rem",
                         color: "var(--primary)",
                         fontWeight: "900",
-                        marginBottom: "0.5rem",
+                        marginBottom: "1rem",
                         background: '#FFE6EF',
                         display: 'inline-block',
-                        padding: '0.4rem 0.8rem',
-                        borderRadius: '10px'
+                        padding: '0.5rem 1rem',
+                        borderRadius: '12px'
                     }}
                 >
                     Peak Chat Time
@@ -123,10 +122,10 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
 
                 <h1
                     style={{
-                        fontSize: "clamp(1.5rem, 5vw, 2rem)",
+                        fontSize: "2rem",
                         fontWeight: "bold",
-                        marginTop: "0.5rem",
-                        marginBottom: "0.25rem",
+                        marginTop: "1.5rem",
+                        marginBottom: "0.5rem",
                         lineHeight: 1.2,
                         color: "#000"
                     }}
@@ -135,7 +134,7 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
                 </h1>
                 <div
                     style={{
-                        fontSize: "clamp(3.5rem, 15vw, 4.5rem)",
+                        fontSize: "clamp(3rem, 10vw, 4.5rem)",
                         fontWeight: "900",
                         color: "var(--purple)",
                         textShadow: "3px 3px 0px rgba(0,0,0,0.1)",
@@ -147,8 +146,8 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
 
                 <div
                     style={{
-                        fontSize: "1rem",
-                        marginTop: "0.75rem",
+                        fontSize: "1.2rem",
+                        marginTop: "1rem",
                         color: "var(--text-secondary)",
                         fontWeight: "bold",
                         background: "#ECE6FF",
@@ -162,10 +161,10 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
 
                 <div
                     style={{
-                        height: "clamp(250px, 40vh, 350px)", // Maximized for mobile
+                        height: "220px",
                         width: "100%",
-                        marginTop: "1rem",
-                        padding: "0 0.5rem",
+                        marginTop: "2rem",
+                        padding: "0 1rem",
                         boxSizing: "border-box"
                     }}
                 >
