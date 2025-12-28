@@ -47,7 +47,7 @@ const MostActiveDaySlide = ({ active, onNext, stats }) => {
 
     const chartOptions = {
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: false, // Ensure chart fills height
         plugins: {
             legend: { display: false },
             tooltip: {
@@ -92,14 +92,14 @@ const MostActiveDaySlide = ({ active, onNext, stats }) => {
                 <h3 style={{
                     textTransform: 'uppercase',
                     letterSpacing: '0.1em',
-                    fontSize: '1rem',
+                    fontSize: '0.9rem',
                     color: 'var(--purple)',
                     fontWeight: '900',
-                    marginBottom: '1.5rem',
+                    marginBottom: '1rem',
                     background: '#ECE6FF',
                     display: 'inline-block',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '12px',
+                    padding: '0.4rem 0.8rem',
+                    borderRadius: '10px',
                     transform: 'rotate(-2deg)'
                 }}>
                     Most Active Day
@@ -111,20 +111,20 @@ const MostActiveDaySlide = ({ active, onNext, stats }) => {
                     transition={{ delay: 0.5, type: 'spring' }}
                 >
                     <div style={{
-                        fontSize: 'clamp(2.5rem, 10vw, 4rem)',
+                        fontSize: 'clamp(2.5rem, 12vw, 4rem)',
                         fontWeight: '900',
                         color: 'var(--primary)',
                         lineHeight: 1,
-                        marginBottom: '0.5rem',
+                        marginBottom: '0.25rem',
                         fontFamily: 'var(--font-display)',
                         textShadow: '3px 3px 0px rgba(0,0,0,0.1)'
                     }}>
                         {peakDay}
                     </div>
                     <div style={{
-                        fontSize: '1.5rem',
+                        fontSize: '1.2rem',
                         color: 'var(--text-secondary)',
-                        marginBottom: '1rem',
+                        marginBottom: '0.5rem',
                         fontWeight: 'bold'
                     }}>
                         {peakCount.toLocaleString()} messages
@@ -132,10 +132,10 @@ const MostActiveDaySlide = ({ active, onNext, stats }) => {
                 </motion.div>
 
                 <div style={{
-                    height: '250px',
+                    height: 'clamp(250px, 40vh, 350px)',
                     width: '100%',
-                    marginTop: '2rem',
-                    padding: '0 1rem',
+                    marginTop: '1.5rem',
+                    padding: '0 0.5rem',
                     boxSizing: 'border-box'
                 }}>
                     <Bar data={chartData} options={chartOptions} />

@@ -57,8 +57,8 @@ const StatsSlide = ({ active, onNext, stats }) => {
                     transition={{ delay: 0.4 }}
                 >
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                        <span style={{ fontWeight: '900', fontSize: '1.5rem', color: '#000' }}>{p1.name}</span>
-                        <span style={{ fontWeight: '900', fontSize: '1.5rem', color: '#000' }}>{p2.name}</span>
+                        <span style={{ fontWeight: '900', fontSize: 'clamp(1.2rem, 5vw, 1.5rem)', color: '#000' }}>{p1.name}</span>
+                        <span style={{ fontWeight: '900', fontSize: 'clamp(1.2rem, 5vw, 1.5rem)', color: '#000' }}>{p2.name}</span>
                     </div>
 
                     {/* Balance Bar - Pop Style */}
@@ -86,7 +86,7 @@ const StatsSlide = ({ active, onNext, stats }) => {
                         <div style={{ flex: 1, background: '#00F0FF' }}></div> {/* Cyan */}
                     </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', color: '#000', fontWeight: 'bold' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.75rem', color: '#000', fontWeight: 'bold', fontSize: 'clamp(0.8rem, 3.5vw, 1rem)' }}>
                         <span>{p1.count.toLocaleString()} ({Math.round(p1Percent)}%)</span>
                         <span>{p2.count.toLocaleString()} ({Math.round(100 - p1Percent)}%)</span>
                     </div>
