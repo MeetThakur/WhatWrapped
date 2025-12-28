@@ -111,7 +111,7 @@ const MostActiveDaySlide = ({ active, onNext, stats }) => {
                     transition={{ delay: 0.5, type: 'spring' }}
                 >
                     <div style={{
-                        fontSize: 'clamp(2.5rem, 10vw, 4rem)',
+                        fontSize: '4rem',
                         fontWeight: '900',
                         color: 'var(--primary)',
                         lineHeight: 1,

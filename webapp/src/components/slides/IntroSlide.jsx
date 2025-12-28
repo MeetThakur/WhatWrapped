@@ -12,7 +12,7 @@ const IntroSlide = ({ active, onNext }) => {
                 {/* Pop Style Icon */}
                 <motion.div
                     style={{
-                        fontSize: "clamp(3rem, 10vw, 4.5rem)", // Responsive icon
+                        fontSize: "4.5rem", // Reduced from 6rem
                         marginBottom: "1rem",
                         filter: "drop-shadow(5px 5px 0px rgba(0,0,0,1))",
                     }}
@@ -30,7 +30,7 @@ const IntroSlide = ({ active, onNext }) => {
 
                 <motion.h1
                     style={{
-                        fontSize: "clamp(2rem, 6vw, 2.5rem)", // Responsive heading
+                        fontSize: "2.5rem", // Reduced from 3.5rem
                         marginBottom: "0.25rem", // Reduced margin
                         color: "#000",
                         fontFamily: "var(--font-display)",
@@ -46,7 +46,7 @@ const IntroSlide = ({ active, onNext }) => {
 
                 <motion.h2
                     style={{
-                        fontSize: "clamp(3rem, 12vw, 4rem)", // Responsive big text
+                        fontSize: "4rem", // Reduced from 5rem
                         marginBottom: "1.5rem",
                         color: "#FF0055", // Hot Pink
                         fontFamily: "var(--font-display)",

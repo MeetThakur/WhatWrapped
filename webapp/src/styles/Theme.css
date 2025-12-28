@@ -38,7 +38,7 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100dvh;
+    height: 100vh;
     z-index: -2;
     background:
         radial-gradient(circle at 10% 20%, #fd297b 0%, transparent 40%),
@@ -183,18 +183,4 @@ h3 {
     font-weight: bold;
     transform: rotate(-2deg);
     display: inline-block;
-}
-
-@media (max-width: 480px) {
-    .glass-card {
-        padding: 1.5rem !important;
-        /* Reduce padding on mobile */
-        width: 95% !important;
-        /* Ensure it fits width */
-    }
-
-    .content-section {
-        padding: 0.75rem !important;
-        margin-bottom: 1rem !important;
-    }
 }

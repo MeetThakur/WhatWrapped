@@ -61,7 +61,7 @@ const ConversationStarterSlide = ({ active, onNext, stats }) => {
                 transition={{ delay: 0.2, type: 'spring' }}
             >
                 <div style={{
-                    fontSize: 'clamp(2rem, 8vw, 3rem)',
+                    fontSize: '3rem',
                     fontWeight: 'bold',
                     fontFamily: 'var(--font-display)',
                     color: '#000',
@@ -83,7 +83,7 @@ const ConversationStarterSlide = ({ active, onNext, stats }) => {
                     The Igniter 🚀
                 </div>
                 <div style={{
-                    fontSize: 'clamp(3rem, 12vw, 4rem)',
+                    fontSize: '4rem',
                     fontWeight: '900',
                     fontFamily: 'var(--font-display)',
                     color: '#000',

@@ -40,7 +40,7 @@ const Slide = ({ children, active, duration = 8000, onNext }) => {
             style={{
                 width: "100%",
                 maxWidth: "420px",
-                height: "85dvh",
+                height: "85vh",
                 maxHeight: "800px",
                 position: "relative",
                 margin: "auto",

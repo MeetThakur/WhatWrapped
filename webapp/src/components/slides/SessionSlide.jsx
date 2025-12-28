@@ -169,7 +169,7 @@ const SessionSlide = ({ active, onNext, stats }) => {
                 >
                     <div
                         style={{
-                            fontSize: "clamp(3rem, 10vw, 3.5rem)",
+                            fontSize: "3.5rem",
                             fontWeight: "900",
                             color: "#000",
                             lineHeight: 1,

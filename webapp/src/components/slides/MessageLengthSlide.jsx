@@ -99,7 +99,7 @@ const MessageLengthSlide = ({ active, onNext, stats }) => {
                                 flexDirection: 'column',
                                 justifyContent: 'center'
                             }}>
-                                <div style={{ fontSize: 'clamp(2rem, 8vw, 3rem)', fontWeight: '900', fontFamily: 'var(--font-display)', color: textColor }}>
+                                <div style={{ fontSize: '2.5rem', fontWeight: '900', fontFamily: 'var(--font-display)', color: textColor }}>
                                     {data.avgLength}
                                 </div>
                                 <div style={{ fontSize: '0.75rem', fontWeight: 'bold', color: textColor, opacity: 0.9 }}>

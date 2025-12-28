@@ -40,8 +40,7 @@ const WordCloudSlide = ({ active, onNext, stats }) => {
                 transition={{ duration: 0.5 }}
             >
                 {topWords.slice(0, 20).map((word, i) => {
-                    const baseSize = Math.max(1, 2.5 - (i * 0.1));
-                    const size = `clamp(${baseSize * 0.7}rem, 5vw, ${baseSize}rem)`;
+                    const size = Math.max(1, 2.5 - (i * 0.1)) + 'rem';
                     const colors = ['#FF0055', '#00F0FF', '#7000FF', '#FFD700', '#000'];
                     const color = colors[i % colors.length];
 

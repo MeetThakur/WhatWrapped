@@ -134,7 +134,7 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
                 </h1>
                 <div
                     style={{
-                        fontSize: "clamp(3rem, 10vw, 4.5rem)",
+                        fontSize: "4.5rem",
                         fontWeight: "900",
                         color: "var(--purple)",
                         textShadow: "3px 3px 0px rgba(0,0,0,0.1)",

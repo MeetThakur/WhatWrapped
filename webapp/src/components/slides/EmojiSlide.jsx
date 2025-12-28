@@ -131,7 +131,7 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                         </motion.div>
                         <motion.span
                             style={{
-                                fontSize: "clamp(3.5rem, 12vw, 4.5rem)",
+                                fontSize: "4.5rem",
                                 filter: "drop-shadow(4px 4px 0px rgba(0,0,0,0.5))",
                             }}
                             animate={{ y: [0, -8, 0] }}

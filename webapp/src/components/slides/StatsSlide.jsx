@@ -42,7 +42,7 @@ const StatsSlide = ({ active, onNext, stats }) => {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.2, type: 'spring' }}
             >
-                <h3 style={{ fontSize: 'clamp(3rem, 12vw, 5rem)', margin: 0, lineHeight: 1, fontFamily: 'var(--font-display)', color: '#000', textShadow: '4px 4px 0px #00F0FF' }}>
+                <h3 style={{ fontSize: '5rem', margin: 0, lineHeight: 1, fontFamily: 'var(--font-display)', color: '#000', textShadow: '4px 4px 0px #00F0FF' }}>
                     {(stats.totalMessages / 1000).toFixed(1)}k
                 </h3>
                 <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', fontWeight: 'bold' }}>Total Messages</p>

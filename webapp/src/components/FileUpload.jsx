@@ -47,7 +47,7 @@ const FileUpload = ({ onFileUpload }) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            height: '100dvh',
+            height: '100vh',
             width: '100vw',
             position: 'relative',
             zIndex: 10
