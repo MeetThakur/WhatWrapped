@@ -62,7 +62,8 @@ const FileUpload = ({ onFileUpload }) => {
                 width: "100vw",
                 position: "relative",
                 zIndex: 10,
-                padding: "1rem",
+                padding: isMobile ? "2rem 1rem 3rem" : "1rem",
+                boxSizing: "border-box",
             }}
         >
             <motion.div
@@ -81,7 +82,7 @@ const FileUpload = ({ onFileUpload }) => {
                     maxWidth: "500px",
                     width: "90%",
                     position: "relative",
-                    maxHeight: "90vh",
+                    maxHeight: isMobile ? "85vh" : "90vh",
                     overflowY: "auto",
                 }}
             >

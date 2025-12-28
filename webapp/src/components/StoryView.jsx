@@ -135,6 +135,8 @@ const StoryView = ({ stats, onReset }) => {
                 userSelect: "none",
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
+                padding: isMobile ? "1vh 0.5rem" : "2vh 1rem",
+                boxSizing: "border-box",
             }}
         >
             <div className="background-animate"></div>

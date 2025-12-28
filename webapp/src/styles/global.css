@@ -91,6 +91,8 @@ html {
     overflow: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    box-sizing: border-box;
 }
 
 .app-container::-webkit-scrollbar {
