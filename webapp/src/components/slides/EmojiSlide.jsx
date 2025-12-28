@@ -1,9 +1,18 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Slide from "../Slide";
 import { getTopEmojis } from "../../utils/analytics";
 import { motion } from "framer-motion";
 
 const EmojiSlide = ({ active, onNext, stats }) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     const topEmojis = useMemo(() => getTopEmojis(stats), [stats]);
 
     return (
@@ -11,17 +20,19 @@ const EmojiSlide = ({ active, onNext, stats }) => {
             <motion.h2
                 style={{
                     color: "var(--purple)",
-                    marginBottom: "1.5rem",
+                    marginBottom: isMobile ? "1rem" : "1.5rem",
                     textTransform: "uppercase",
                     letterSpacing: "0.1em",
-                    fontSize: "1rem",
+                    fontSize: isMobile ? "0.85rem" : "1rem",
                     fontWeight: "900",
-                    background: '#ECE6FF',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '12px',
-                    border: '2px solid #000',
-                    boxShadow: '4px 4px 0px #000',
-                    display: 'inline-block'
+                    background: "#ECE6FF",
+                    padding: isMobile ? "0.4rem 0.8rem" : "0.5rem 1rem",
+                    borderRadius: isMobile ? "10px" : "12px",
+                    border: "2px solid #000",
+                    boxShadow: isMobile
+                        ? "3px 3px 0px #000"
+                        : "4px 4px 0px #000",
+                    display: "inline-block",
                 }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -36,10 +47,10 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                     display: "flex",
                     alignItems: "flex-end",
                     justifyContent: "center",
-                    gap: "0.75rem",
-                    marginBottom: "1rem",
-                    height: "200px",
-                    padding: "0 0.5rem",
+                    gap: isMobile ? "0.5rem" : "0.75rem",
+                    marginBottom: isMobile ? "0.75rem" : "1rem",
+                    height: isMobile ? "160px" : "200px",
+                    padding: isMobile ? "0 0.25rem" : "0 0.5rem",
                 }}
             >
                 {/* Second Place */}
@@ -57,7 +68,7 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                     >
                         <motion.span
                             style={{
-                                fontSize: "2.5rem",
+                                fontSize: isMobile ? "2rem" : "2.5rem",
                                 filter: "drop-shadow(2px 2px 0px rgba(0,0,0,0.5))",
                             }}
                             animate={{ y: [0, -4, 0] }}
@@ -72,17 +83,21 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                         <div
                             style={{
                                 background: "#C0C0C0", // Silver
-                                padding: "1rem",
-                                borderRadius: "16px",
-                                border: "3px solid #000",
-                                boxShadow: "4px 4px 0px rgba(0,0,0,1)",
-                                minWidth: "90px",
+                                padding: isMobile ? "0.75rem" : "1rem",
+                                borderRadius: isMobile ? "12px" : "16px",
+                                border: isMobile
+                                    ? "2px solid #000"
+                                    : "3px solid #000",
+                                boxShadow: isMobile
+                                    ? "3px 3px 0px rgba(0,0,0,1)"
+                                    : "4px 4px 0px rgba(0,0,0,1)",
+                                minWidth: isMobile ? "70px" : "90px",
                                 textAlign: "center",
                             }}
                         >
                             <div
                                 style={{
-                                    fontSize: "1.5rem",
+                                    fontSize: isMobile ? "1.25rem" : "1.5rem",
                                     fontWeight: "900",
                                     fontFamily: "var(--font-display)",
                                     color: "#000",
@@ -92,10 +107,10 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                             </div>
                             <div
                                 style={{
-                                    fontSize: "0.85rem",
+                                    fontSize: isMobile ? "0.75rem" : "0.85rem",
                                     color: "#000",
                                     marginTop: "0.25rem",
-                                    fontWeight: "bold"
+                                    fontWeight: "bold",
                                 }}
                             >
                                 2nd
@@ -131,7 +146,7 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                         </motion.div>
                         <motion.span
                             style={{
-                                fontSize: "3.5rem",
+                                fontSize: isMobile ? "2.75rem" : "3.5rem",
                                 filter: "drop-shadow(3px 3px 0px rgba(0,0,0,0.5))",
                             }}
                             animate={{ y: [0, -6, 0] }}
@@ -142,17 +157,21 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                         <div
                             style={{
                                 background: "#FFD700", // Gold
-                                padding: "1.5rem 1.25rem",
-                                borderRadius: "16px",
-                                border: "3px solid #000",
-                                boxShadow: "6px 6px 0px rgba(0,0,0,1)",
-                                minWidth: "100px",
+                                padding: isMobile ? "1rem" : "1.5rem 1.25rem",
+                                borderRadius: isMobile ? "12px" : "16px",
+                                border: isMobile
+                                    ? "2px solid #000"
+                                    : "3px solid #000",
+                                boxShadow: isMobile
+                                    ? "4px 4px 0px rgba(0,0,0,1)"
+                                    : "6px 6px 0px rgba(0,0,0,1)",
+                                minWidth: isMobile ? "80px" : "100px",
                                 textAlign: "center",
                             }}
                         >
                             <div
                                 style={{
-                                    fontSize: "2rem",
+                                    fontSize: isMobile ? "1.5rem" : "2rem",
                                     fontWeight: "900",
                                     fontFamily: "var(--font-display)",
                                     color: "#000",
@@ -162,10 +181,10 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                             </div>
                             <div
                                 style={{
-                                    fontSize: "0.9rem",
+                                    fontSize: isMobile ? "0.8rem" : "0.9rem",
                                     color: "#000",
                                     marginTop: "0.25rem",
-                                    fontWeight: "bold"
+                                    fontWeight: "bold",
                                 }}
                             >
                                 1st
@@ -189,7 +208,7 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                     >
                         <motion.span
                             style={{
-                                fontSize: "2.25rem",
+                                fontSize: isMobile ? "1.75rem" : "2.25rem",
                                 filter: "drop-shadow(2px 2px 0px rgba(0,0,0,0.5))",
                             }}
                             animate={{ y: [0, -4, 0] }}
@@ -204,17 +223,21 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                         <div
                             style={{
                                 background: "#CD7F32", // Bronze
-                                padding: "1rem",
-                                borderRadius: "16px",
-                                border: "3px solid #000",
-                                boxShadow: "4px 4px 0px rgba(0,0,0,1)",
-                                minWidth: "80px",
+                                padding: isMobile ? "0.75rem" : "1rem",
+                                borderRadius: isMobile ? "12px" : "16px",
+                                border: isMobile
+                                    ? "2px solid #000"
+                                    : "3px solid #000",
+                                boxShadow: isMobile
+                                    ? "3px 3px 0px rgba(0,0,0,1)"
+                                    : "4px 4px 0px rgba(0,0,0,1)",
+                                minWidth: isMobile ? "60px" : "80px",
                                 textAlign: "center",
                             }}
                         >
                             <div
                                 style={{
-                                    fontSize: "1.25rem",
+                                    fontSize: isMobile ? "1rem" : "1.25rem",
                                     fontWeight: "900",
                                     fontFamily: "var(--font-display)",
                                     color: "#000",
@@ -224,10 +247,10 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                             </div>
                             <div
                                 style={{
-                                    fontSize: "0.85rem",
+                                    fontSize: isMobile ? "0.75rem" : "0.85rem",
                                     color: "#000",
                                     marginTop: "0.25rem",
-                                    fontWeight: "bold"
+                                    fontWeight: "bold",
                                 }}
                             >
                                 3rd
@@ -243,9 +266,9 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                     style={{
                         display: "flex",
                         justifyContent: "center",
-                        gap: "1rem",
+                        gap: isMobile ? "0.5rem" : "1rem",
                         flexWrap: "wrap",
-                        padding: "0 1rem",
+                        padding: isMobile ? "0 0.5rem" : "0 1rem",
                     }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -257,12 +280,16 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                             style={{
                                 display: "flex",
                                 alignItems: "center",
-                                gap: "0.5rem",
-                                padding: "0.5rem 1rem",
+                                gap: isMobile ? "0.4rem" : "0.5rem",
+                                padding: isMobile
+                                    ? "0.4rem 0.75rem"
+                                    : "0.5rem 1rem",
                                 background: "#fff",
-                                borderRadius: "12px",
+                                borderRadius: isMobile ? "10px" : "12px",
                                 border: "2px solid #000",
-                                boxShadow: "3px 3px 0px #000"
+                                boxShadow: isMobile
+                                    ? "2px 2px 0px #000"
+                                    : "3px 3px 0px #000",
                             }}
                             initial={{ scale: 0, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
@@ -271,12 +298,16 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                                 type: "spring",
                             }}
                         >
-                            <span style={{ fontSize: "2rem" }}>
+                            <span
+                                style={{
+                                    fontSize: isMobile ? "1.5rem" : "2rem",
+                                }}
+                            >
                                 {item.emoji}
                             </span>
                             <span
                                 style={{
-                                    fontSize: "1rem",
+                                    fontSize: isMobile ? "0.9rem" : "1rem",
                                     fontWeight: "900",
                                     color: "#000",
                                 }}

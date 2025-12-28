@@ -36,14 +36,14 @@ const SessionSlide = ({ active, onNext, stats }) => {
                     style={{
                         textTransform: "uppercase",
                         letterSpacing: "0.1em",
-                        fontSize: "1rem",
+                        fontSize: "0.85rem",
                         color: "var(--primary)",
                         fontWeight: "900",
-                        marginBottom: "2rem",
-                        background: '#FFE6EF',
-                        display: 'inline-block',
-                        padding: '0.5rem 1rem',
-                        borderRadius: '12px'
+                        marginBottom: "0.75rem",
+                        background: "#FFE6EF",
+                        display: "inline-block",
+                        padding: "0.4rem 0.8rem",
+                        borderRadius: "10px",
                     }}
                 >
                     Marathon Chatters
@@ -55,8 +55,8 @@ const SessionSlide = ({ active, onNext, stats }) => {
                         style={{
                             display: "flex",
                             flexDirection: "column",
-                            gap: "0.75rem",
-                            marginBottom: "1rem",
+                            gap: "0.5rem",
+                            marginBottom: "0.75rem",
                         }}
                     >
                         {topSessions.slice(0, 3).map((session, index) => {
@@ -68,10 +68,10 @@ const SessionSlide = ({ active, onNext, stats }) => {
                                     key={index}
                                     style={{
                                         background: "#fff",
-                                        borderRadius: "16px",
-                                        padding: "1rem",
+                                        borderRadius: "12px",
+                                        padding: "0.75rem",
                                         border: "2px solid #000",
-                                        boxShadow: "4px 4px 0px #000",
+                                        boxShadow: "3px 3px 0px #000",
                                         textAlign: "left",
                                     }}
                                     initial={{ x: -30, opacity: 0 }}
@@ -96,13 +96,13 @@ const SessionSlide = ({ active, onNext, stats }) => {
                                             }}
                                         >
                                             <span
-                                                style={{ fontSize: "1.5rem" }}
+                                                style={{ fontSize: "1.3rem" }}
                                             >
                                                 {medals[index]}
                                             </span>
                                             <span
                                                 style={{
-                                                    fontSize: "1.8rem",
+                                                    fontSize: "1.5rem",
                                                     fontWeight: "900",
                                                     color: "#000",
                                                     fontFamily:
@@ -117,10 +117,10 @@ const SessionSlide = ({ active, onNext, stats }) => {
                                     </div>
                                     <div
                                         style={{
-                                            fontSize: "0.85rem",
+                                            fontSize: "0.75rem",
                                             color: "var(--text-secondary)",
                                             marginTop: "0.2rem",
-                                            fontWeight: "bold"
+                                            fontWeight: "bold",
                                         }}
                                     >
                                         on {session.date}
@@ -132,20 +132,31 @@ const SessionSlide = ({ active, onNext, stats }) => {
                 ) : (
                     <motion.div
                         style={{
-                            padding: "3rem 2rem",
+                            padding: "2rem 1.5rem",
                             textAlign: "center",
                             opacity: 0.7,
-                            marginBottom: "2rem",
+                            marginBottom: "1rem",
                         }}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 0.7 }}
                         transition={{ delay: 0.5 }}
                     >
                         {/* Empty state simplified */}
-                        <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>
+                        <div
+                            style={{
+                                fontSize: "2.5rem",
+                                marginBottom: "0.75rem",
+                            }}
+                        >
                             ⚡
                         </div>
-                        <div style={{ fontSize: "1.2rem", color: "#000", fontWeight: 'bold' }}>
+                        <div
+                            style={{
+                                fontSize: "1rem",
+                                color: "#000",
+                                fontWeight: "bold",
+                            }}
+                        >
                             Quick and sweet chats!
                         </div>
                     </motion.div>
@@ -156,12 +167,12 @@ const SessionSlide = ({ active, onNext, stats }) => {
                     className="content-section"
                     style={{
                         display: "inline-block",
-                        padding: "1rem 2rem",
+                        padding: "0.75rem 1.5rem",
                         background: "var(--accent)", // Pop Yellow
-                        borderRadius: "16px",
+                        borderRadius: "12px",
                         border: "2px solid #000",
-                        boxShadow: "4px 4px 0px #000",
-                        color: "#000"
+                        boxShadow: "3px 3px 0px #000",
+                        color: "#000",
                     }}
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
@@ -169,7 +180,7 @@ const SessionSlide = ({ active, onNext, stats }) => {
                 >
                     <div
                         style={{
-                            fontSize: "2.5rem",
+                            fontSize: "2rem",
                             fontWeight: "900",
                             color: "#000",
                             lineHeight: 1,
@@ -180,11 +191,11 @@ const SessionSlide = ({ active, onNext, stats }) => {
                     </div>
                     <div
                         style={{
-                            fontSize: "0.85rem",
+                            fontSize: "0.75rem",
                             textTransform: "uppercase",
                             letterSpacing: "0.1em",
                             fontWeight: "bold",
-                            marginTop: "0.3rem"
+                            marginTop: "0.3rem",
                         }}
                     >
                         Days Active

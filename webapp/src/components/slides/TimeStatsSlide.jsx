@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slide from "../Slide";
 import { Line } from "react-chartjs-2";
 import {
@@ -26,6 +26,15 @@ ChartJS.register(
 );
 
 const TimeStatsSlide = ({ active, onNext, stats }) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     // Find peak hour
     const peakHour = stats.hourlyActivity.indexOf(
         Math.max(...stats.hourlyActivity),
@@ -52,7 +61,7 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
                 fill: true,
                 backgroundColor: "rgba(255, 0, 85, 0.2)",
                 borderColor: "#FF0055",
-                borderWidth: 4,
+                borderWidth: isMobile ? 3 : 4,
                 tension: 0.4, // Curved lines
                 pointRadius: 0,
             },
@@ -61,6 +70,7 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
 
     const chartOptions = {
         responsive: true,
+        maintainAspectRatio: true,
         plugins: {
             legend: { display: false },
             tooltip: {
@@ -76,8 +86,12 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
                 grid: { display: false },
                 ticks: {
                     color: "#000",
-                    maxTicksLimit: 6,
-                    font: { size: 10, weight: 'bold', family: 'Outfit' },
+                    maxTicksLimit: isMobile ? 4 : 6,
+                    font: {
+                        size: isMobile ? 8 : 10,
+                        weight: "bold",
+                        family: "Outfit",
+                    },
                 },
             },
             y: {
@@ -87,11 +101,15 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
             },
         },
         animation: {
-            duration: 2000,
+            duration: isMobile ? 1500 : 2000,
             easing: "easeOutQuart",
         },
         layout: {
-            padding: { left: 10, right: 10, bottom: 0 },
+            padding: {
+                left: isMobile ? 5 : 10,
+                right: isMobile ? 5 : 10,
+                bottom: 0,
+            },
         },
     };
 
@@ -107,14 +125,14 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
                     style={{
                         textTransform: "uppercase",
                         letterSpacing: "0.1em",
-                        fontSize: "1rem",
+                        fontSize: isMobile ? "0.7rem" : "0.9rem",
                         color: "var(--primary)",
                         fontWeight: "900",
-                        marginBottom: "1rem",
-                        background: '#FFE6EF',
-                        display: 'inline-block',
-                        padding: '0.5rem 1rem',
-                        borderRadius: '12px'
+                        marginBottom: isMobile ? "0.5rem" : "0.5rem",
+                        background: "#FFE6EF",
+                        display: "inline-block",
+                        padding: isMobile ? "0.3rem 0.6rem" : "0.4rem 0.8rem",
+                        borderRadius: isMobile ? "8px" : "10px",
                     }}
                 >
                     Peak Chat Time
@@ -122,23 +140,30 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
 
                 <h1
                     style={{
-                        fontSize: "2rem",
+                        fontSize: isMobile
+                            ? "clamp(1.1rem, 4.5vw, 1.35rem)"
+                            : "1.5rem",
                         fontWeight: "bold",
-                        marginTop: "1.5rem",
-                        marginBottom: "0.5rem",
-                        lineHeight: 1.2,
-                        color: "#000"
+                        marginTop: isMobile ? "0" : "0.5rem",
+                        marginBottom: isMobile ? "0.25rem" : "0.25rem",
+                        lineHeight: 1.1,
+                        color: "#000",
                     }}
                 >
                     Most active at
                 </h1>
                 <div
                     style={{
-                        fontSize: "4.5rem",
+                        fontSize: isMobile
+                            ? "clamp(2.5rem, 10vw, 3.5rem)"
+                            : "3.5rem",
                         fontWeight: "900",
                         color: "var(--purple)",
-                        textShadow: "3px 3px 0px rgba(0,0,0,0.1)",
+                        textShadow: isMobile
+                            ? "2px 2px 0px rgba(0,0,0,0.1)"
+                            : "3px 3px 0px rgba(0,0,0,0.1)",
                         lineHeight: 1,
+                        marginBottom: isMobile ? "0.5rem" : "0",
                     }}
                 >
                     {formatHour(peakHour)}
@@ -146,14 +171,15 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
 
                 <div
                     style={{
-                        fontSize: "1.2rem",
-                        marginTop: "1rem",
+                        fontSize: isMobile ? "0.8rem" : "1rem",
+                        marginTop: isMobile ? "0" : "0.5rem",
+                        marginBottom: isMobile ? "0.75rem" : "0",
                         color: "var(--text-secondary)",
                         fontWeight: "bold",
                         background: "#ECE6FF",
                         display: "inline-block",
-                        padding: "0.2rem 0.8rem",
-                        borderRadius: "8px"
+                        padding: isMobile ? "0.3rem 0.6rem" : "0.3rem 0.6rem",
+                        borderRadius: "8px",
                     }}
                 >
                     {chatterType}
@@ -161,12 +187,13 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
 
                 <div
                     style={{
-                        height: "220px",
-                        width: "100%",
-                        marginTop: "1rem", // Reduced top margin
-                        marginLeft: "-10px", // Pull left slightly to offset padding
-                        width: "calc(100% + 20px)", // Make it slightly wider
-                        boxSizing: "border-box"
+                        height: isMobile ? "160px" : "180px",
+                        width: isMobile
+                            ? "calc(100% + 10px)"
+                            : "calc(100% + 20px)",
+                        marginTop: isMobile ? "0" : "0.75rem",
+                        marginLeft: isMobile ? "-5px" : "-10px",
+                        boxSizing: "border-box",
                     }}
                 >
                     <Line data={chartData} options={chartOptions} />
@@ -176,24 +203,32 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
             {/* Bottom Quote Box */}
             <motion.div
                 style={{
-                    marginTop: "auto",
-                    marginBottom: "1.5rem",
+                    marginTop: isMobile ? "auto" : "auto",
+                    marginBottom: "0",
                     background: "var(--secondary)",
                     color: "#000",
-                    borderRadius: "16px",
-                    padding: "1.25rem",
+                    borderRadius: isMobile ? "10px" : "12px",
+                    padding: isMobile ? "0.7rem 0.85rem" : "1rem",
                     textAlign: "center",
                     position: "relative",
                     width: "100%",
                     maxWidth: "400px",
-                    boxShadow: "5px 5px 0px #000",
-                    border: "2px solid #000"
+                    boxShadow: isMobile
+                        ? "3px 3px 0px #000"
+                        : "4px 4px 0px #000",
+                    border: "2px solid #000",
                 }}
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.8, type: "spring" }}
             >
-                <div style={{ fontSize: "1.2rem", lineHeight: 1.4, fontWeight: "bold" }}>
+                <div
+                    style={{
+                        fontSize: isMobile ? "0.85rem" : "1rem",
+                        lineHeight: 1.3,
+                        fontWeight: "bold",
+                    }}
+                >
                     Keeping the chat alive throughout the day! 💬
                 </div>
             </motion.div>

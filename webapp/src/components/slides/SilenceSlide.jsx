@@ -34,15 +34,15 @@ const SilenceSlide = ({ active, onNext, stats }) => {
                     style={{
                         textTransform: "uppercase",
                         letterSpacing: "0.1em",
-                        fontSize: "1rem",
+                        fontSize: "0.85rem",
                         color: "var(--purple)",
                         fontWeight: "900",
-                        marginBottom: "1rem",
-                        background: '#ECE6FF',
-                        display: 'inline-block',
-                        padding: '0.5rem 1rem',
-                        borderRadius: '12px',
-                        transform: 'rotate(-1deg)'
+                        marginBottom: "0.75rem",
+                        background: "#ECE6FF",
+                        display: "inline-block",
+                        padding: "0.4rem 0.8rem",
+                        borderRadius: "10px",
+                        transform: "rotate(-1deg)",
                     }}
                 >
                     Longest Silences
@@ -54,8 +54,8 @@ const SilenceSlide = ({ active, onNext, stats }) => {
                         style={{
                             display: "flex",
                             flexDirection: "column",
-                            gap: "1rem",
-                            marginBottom: "1.5rem",
+                            gap: "0.75rem",
+                            marginBottom: "1rem",
                         }}
                     >
                         {topSilences.slice(0, 3).map((silence, index) => {
@@ -68,10 +68,10 @@ const SilenceSlide = ({ active, onNext, stats }) => {
                                     key={index}
                                     style={{
                                         background: "#fff",
-                                        borderRadius: "16px",
-                                        padding: "1rem",
+                                        borderRadius: "12px",
+                                        padding: "0.75rem",
                                         border: "2px solid #000",
-                                        boxShadow: "4px 4px 0px #000",
+                                        boxShadow: "3px 3px 0px #000",
                                         textAlign: "left",
                                     }}
                                     initial={{ x: -50, opacity: 0 }}
@@ -97,13 +97,13 @@ const SilenceSlide = ({ active, onNext, stats }) => {
                                             }}
                                         >
                                             <span
-                                                style={{ fontSize: "1.5rem" }}
+                                                style={{ fontSize: "1.3rem" }}
                                             >
                                                 {medals[index]}
                                             </span>
                                             <span
                                                 style={{
-                                                    fontSize: "1.5rem",
+                                                    fontSize: "1.3rem",
                                                     fontWeight: "900",
                                                     color: "#000",
                                                     fontFamily:
@@ -117,9 +117,9 @@ const SilenceSlide = ({ active, onNext, stats }) => {
                                     </div>
                                     <div
                                         style={{
-                                            fontSize: "0.85rem",
+                                            fontSize: "0.75rem",
                                             color: "var(--text-secondary)",
-                                            fontWeight: "bold"
+                                            fontWeight: "bold",
                                         }}
                                     >
                                         {silence.from} — {silence.to}
@@ -131,7 +131,7 @@ const SilenceSlide = ({ active, onNext, stats }) => {
                 ) : (
                     <motion.div
                         style={{
-                            padding: "3rem 2rem",
+                            padding: "2rem 1.5rem",
                             textAlign: "center",
                             opacity: 0.7,
                         }}
@@ -139,10 +139,21 @@ const SilenceSlide = ({ active, onNext, stats }) => {
                         animate={{ opacity: 0.7 }}
                         transition={{ delay: 0.5 }}
                     >
-                        <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>
+                        <div
+                            style={{
+                                fontSize: "2.5rem",
+                                marginBottom: "0.75rem",
+                            }}
+                        >
                             💬
                         </div>
-                        <div style={{ fontSize: "1.2rem", color: "#000", fontWeight: 'bold' }}>
+                        <div
+                            style={{
+                                fontSize: "1rem",
+                                color: "#000",
+                                fontWeight: "bold",
+                            }}
+                        >
                             You kept the conversation going!
                         </div>
                     </motion.div>
@@ -153,38 +164,30 @@ const SilenceSlide = ({ active, onNext, stats }) => {
             <motion.div
                 style={{
                     marginTop: "auto",
-                    marginBottom: "1rem",
+                    marginBottom: "0",
                     background: "var(--accent)", // Yellow pop
                     color: "#000",
-                    borderRadius: "16px",
-                    padding: "1.25rem",
+                    borderRadius: "12px",
+                    padding: "0.75rem",
                     textAlign: "center",
                     position: "relative",
                     width: "100%",
                     maxWidth: "400px",
-                    boxShadow: "5px 5px 0px #000",
-                    border: "2px solid #000"
+                    boxShadow: "4px 4px 0px #000",
+                    border: "2px solid #000",
                 }}
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 1, type: "spring" }}
             >
-                <div style={{ fontSize: "1.1rem", lineHeight: 1.4, fontWeight: "bold" }}>
-                    {messages[0]}
-                </div>
                 <div
                     style={{
-                        fontSize: "0.85rem",
-                        marginTop: "0.5rem",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "5px",
-                        fontWeight: "600"
+                        fontSize: "0.95rem",
+                        lineHeight: 1.3,
+                        fontWeight: "bold",
                     }}
                 >
-                    <span style={{ fontSize: "1rem" }}>💬</span> Keeping the
-                    chat alive?
+                    {messages[0]}
                 </div>
             </motion.div>
         </Slide>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "../styles/Slide.css";
 
@@ -23,6 +23,18 @@ const slideVariants = {
 };
 
 const Slide = ({ children, active, duration = 8000, onNext }) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        // Detect mobile device
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     useEffect(() => {
         if (active && duration) {
             const timer = setTimeout(onNext, duration);
@@ -32,16 +44,17 @@ const Slide = ({ children, active, duration = 8000, onNext }) => {
 
     return (
         <motion.div
-            className="slide-content centered glass-card"
+            className="slide-content centered glass-card no-select"
             variants={slideVariants}
             initial="initial"
             animate="animate"
             exit="exit"
             style={{
                 width: "100%",
-                maxWidth: "420px",
-                height: "85vh",
-                maxHeight: "800px",
+                maxWidth: isMobile ? "95vw" : "420px",
+                height: isMobile ? "85vh" : "85vh",
+                maxHeight: isMobile ? "90vh" : "800px",
+                minHeight: isMobile ? "450px" : "auto",
                 position: "relative",
                 margin: "auto",
                 overflow: "hidden",
@@ -49,45 +62,62 @@ const Slide = ({ children, active, duration = 8000, onNext }) => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                // Override glass-card padding if needed, but keeping it standard is good
+                touchAction: "none",
             }}
         >
-            {/* Playful Background Shapes for the Card */}
-            <div style={{
-                position: 'absolute',
-                top: -50,
-                right: -50,
-                width: 150,
-                height: 150,
-                borderRadius: '50%',
-                background: 'var(--accent)',
-                opacity: 0.2,
-                zIndex: 0
-            }} />
-            <div style={{
-                position: 'absolute',
-                bottom: -30,
-                left: -30,
-                width: 120,
-                height: 120,
-                borderRadius: '50%',
-                background: 'var(--secondary)',
-                opacity: 0.2,
-                zIndex: 0
-            }} />
+            {/* Playful Background Shapes for the Card - Hide on very small screens */}
+            {!isMobile && (
+                <>
+                    <div
+                        style={{
+                            position: "absolute",
+                            top: -50,
+                            right: -50,
+                            width: 150,
+                            height: 150,
+                            borderRadius: "50%",
+                            background: "var(--accent)",
+                            opacity: 0.2,
+                            zIndex: 0,
+                        }}
+                    />
+                    <div
+                        style={{
+                            position: "absolute",
+                            bottom: -30,
+                            left: -30,
+                            width: 120,
+                            height: 120,
+                            borderRadius: "50%",
+                            background: "var(--secondary)",
+                            opacity: 0.2,
+                            zIndex: 0,
+                        }}
+                    />
+                </>
+            )}
 
-            <div style={{
-                position: 'relative',
-                zIndex: 1,
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '2rem 1rem', // Added padding to prevent top cutoff
-                boxSizing: 'border-box'
-            }}>
+            <div
+                style={{
+                    position: "relative",
+                    zIndex: 1,
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: isMobile
+                        ? "clamp(2rem, 10vh, 2.5rem) clamp(0.75rem, 4vw, 1rem) clamp(0.5rem, 3vh, 0.75rem)"
+                        : "2rem 1rem",
+                    boxSizing: "border-box",
+                    overflowY: "hidden",
+                    WebkitOverflowScrolling: "touch",
+                    scrollbarWidth: "none",
+                    msOverflowStyle: "none",
+                }}
+                className="hide-scrollbar"
+            >
                 {children}
             </div>
         </motion.div>

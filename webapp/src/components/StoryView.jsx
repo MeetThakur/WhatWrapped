@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import IntroSlide from "./slides/IntroSlide";
 import StatsSlide from "./slides/StatsSlide";
@@ -16,6 +16,11 @@ import SessionSlide from "./slides/SessionSlide";
 
 const StoryView = ({ stats, onReset }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const touchStartX = useRef(0);
+    const touchStartY = useRef(0);
+    const touchEndX = useRef(0);
+    const touchEndY = useRef(0);
+    const containerRef = useRef(null);
 
     const slides = [
         { component: IntroSlide, props: { stats }, duration: 6000 },
@@ -52,6 +57,11 @@ const StoryView = ({ stats, onReset }) => {
     };
 
     const handleTap = (e) => {
+        // Prevent tap navigation if user was swiping
+        if (Math.abs(touchEndX.current - touchStartX.current) > 50) {
+            return;
+        }
+
         const screenWidth = window.innerWidth;
         if (e.clientX < screenWidth / 3) {
             handlePrev();
@@ -60,14 +70,58 @@ const StoryView = ({ stats, onReset }) => {
         }
     };
 
+    // Touch event handlers for swipe gestures
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+        touchStartY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e) => {
+        touchEndX.current = e.touches[0].clientX;
+        touchEndY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = () => {
+        const diffX = touchStartX.current - touchEndX.current;
+        const diffY = touchStartY.current - touchEndY.current;
+        const minSwipeDistance = 50;
+
+        // Check if horizontal swipe is more significant than vertical
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            // Horizontal swipe
+            if (Math.abs(diffX) > minSwipeDistance) {
+                if (diffX > 0) {
+                    // Swiped left - go to next
+                    handleNext();
+                } else {
+                    // Swiped right - go to previous
+                    handlePrev();
+                }
+            }
+        }
+
+        // Reset values
+        touchStartX.current = 0;
+        touchStartY.current = 0;
+        touchEndX.current = 0;
+        touchEndY.current = 0;
+    };
+
+    // Detect mobile device
+    const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+
     const CurrentSlideComponent = slides[currentIndex]?.component;
     const currentProps = slides[currentIndex]?.props;
     const currentDuration = slides[currentIndex]?.duration;
 
     return (
         <div
-            className="story-view"
+            ref={containerRef}
+            className="story-view no-select"
             onClick={handleTap}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
             style={{
                 display: "flex",
                 justifyContent: "center",
@@ -76,6 +130,11 @@ const StoryView = ({ stats, onReset }) => {
                 width: "100vw",
                 overflow: "hidden",
                 position: "relative",
+                touchAction: "pan-y",
+                WebkitUserSelect: "none",
+                userSelect: "none",
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
             }}
         >
             <div className="background-animate"></div>
@@ -92,8 +151,8 @@ const StoryView = ({ stats, onReset }) => {
                                     index < currentIndex
                                         ? "100%"
                                         : index === currentIndex
-                                            ? "100%"
-                                            : "0%",
+                                          ? "100%"
+                                          : "0%",
                                 transition:
                                     index === currentIndex
                                         ? `width ${currentDuration}ms linear`
@@ -103,7 +162,7 @@ const StoryView = ({ stats, onReset }) => {
                                         ? `fillProgress ${currentDuration}ms linear forwards`
                                         : "none",
                             }}
-                        // Reset animation by using key if needed, or simple width transition for completed ones
+                            // Reset animation by using key if needed, or simple width transition for completed ones
                         ></div>
                         {index === currentIndex && (
                             <style>{`
@@ -129,16 +188,36 @@ const StoryView = ({ stats, onReset }) => {
                 )}
             </AnimatePresence>
 
-            {/* Close Button */}
-            <button
-                className="close-button"
-                onClick={(e) => {
-                    e.stopPropagation();
-                    onReset();
-                }}
-            >
-                ✕
-            </button>
+            {/* Swipe Hint for Mobile - Show only on first slide */}
+            {isMobile && currentIndex === 0 && (
+                <div
+                    style={{
+                        position: "absolute",
+                        bottom: "20px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        color: "white",
+                        fontSize: "0.85rem",
+                        fontWeight: "bold",
+                        background: "rgba(0, 0, 0, 0.6)",
+                        padding: "0.5rem 1rem",
+                        borderRadius: "20px",
+                        zIndex: 10,
+                        opacity: 0.8,
+                        animation: "fadeInOut 3s ease-in-out infinite",
+                        pointerEvents: "none",
+                    }}
+                >
+                    👈 Swipe to navigate 👉
+                </div>
+            )}
+
+            <style>{`
+                @keyframes fadeInOut {
+                    0%, 100% { opacity: 0.4; }
+                    50% { opacity: 0.9; }
+                }
+            `}</style>
         </div>
     );
 };

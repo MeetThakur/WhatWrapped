@@ -18,6 +18,13 @@ Transform your WhatsApp chat exports into a stunning, interactive "Spotify Wrapp
 - **Night Owl vs Early Bird**: Late-night messaging patterns
 - **Conversation Starter**: Who initiates chats more often
 
+### Mobile Optimized
+- **Responsive Design**: Adapts to all screen sizes (320px to 768px+)
+- **Touch Gestures**: Native swipe navigation (swipe left/right for slides)
+- **Safe Areas**: Support for notched devices (iPhone X+, Dynamic Island)
+- **Performance**: Optimized animations and GPU acceleration
+- **iOS Fixes**: Safari bottom bar, no zoom on input, smooth scrolling
+
 ### Premium Design
 - **Midnight Nebula Theme**: Deep purple/black gradients with glowing effects
 - **Glassmorphism UI**: Modern frosted glass cards
@@ -44,6 +51,19 @@ npm run dev
 ```
 
 The app will be available at `http://localhost:3000`
+
+### Mobile Testing
+
+For best mobile testing experience:
+```bash
+# Run dev server
+npm run dev
+
+# Access from mobile device on same network
+# Use your computer's local IP (e.g., http://192.168.1.100:3000)
+```
+
+Or use browser DevTools mobile emulation (F12 → Toggle Device Toolbar)
 
 ## 📱 How to Export WhatsApp Chat
 
@@ -125,6 +145,26 @@ Update CSS variables in `src/styles/Theme.css`:
 - **Conversation Starter**: Counts messages sent after a gap of > 6 hours
 - **Night Owl Score**: Percentage of messages sent between 11 PM - 5 AM
 - **Yapper Score**: Average message length in characters
+
+## 📱 Mobile Optimization
+
+This app is fully optimized for mobile devices with:
+
+- **Swipe Navigation**: Swipe left/right to navigate slides
+- **Touch-Friendly UI**: All controls sized for easy tapping (44px minimum)
+- **Responsive Typography**: Fluid text sizing with `clamp()` for all screens
+- **Safe Area Support**: Content never hidden by notches or home indicators
+- **Performance**: Reduced animations and GPU acceleration for 60fps
+- **iOS Compatibility**: Full support for Safari, dynamic island, and gesture bars
+
+For detailed mobile optimization documentation, see [docs/MOBILE_OPTIMIZATION.md](docs/MOBILE_OPTIMIZATION.md)
+
+### Supported Devices
+
+- ✅ iPhone SE to iPhone 15 Pro Max
+- ✅ All Android devices (360px width and up)
+- ✅ Tablets in portrait mode
+- ✅ Landscape mode with scrolling
 
 ## 🤝 Contributing
 

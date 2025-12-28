@@ -1,19 +1,34 @@
 /* Segmented Progress Bar */
 .story-progress-container {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
+    top: max(10px, calc(var(--safe-top) + 10px));
+    left: max(10px, calc(var(--safe-left) + 10px));
+    right: max(10px, calc(var(--safe-right) + 10px));
     height: 4px;
     z-index: 20;
     display: flex;
     gap: 4px;
-    /* variable spacing */
+}
+
+@media (max-width: 768px) {
+    .story-progress-container {
+        height: 3px;
+        gap: 3px;
+        top: max(8px, calc(var(--safe-top) + 8px));
+    }
+}
+
+@media (max-width: 480px) {
+    .story-progress-container {
+        height: 2.5px;
+        gap: 2px;
+        top: max(6px, calc(var(--safe-top) + 6px));
+    }
 }
 
 .story-progress-bar-bg {
     flex: 1;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
     overflow: hidden;
     height: 100%;
@@ -25,38 +40,95 @@
     background: #ffffff;
     width: 0%;
     border-radius: 2px;
+    will-change: width;
 }
 
+/* Close Button - Touch Optimized */
 .close-button {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
+    top: max(20px, calc(var(--safe-top) + 20px));
+    right: max(20px, calc(var(--safe-right) + 20px));
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.8);
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 100;
-    opacity: 0.7;
-    transition: opacity 0.2s;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .close-button:hover {
     opacity: 1;
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.close-button:active {
+    transform: scale(0.95);
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Mobile optimizations for close button */
+@media (max-width: 768px) {
+    .close-button {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+        top: max(16px, calc(var(--safe-top) + 16px));
+        right: max(16px, calc(var(--safe-right) + 16px));
+    }
+}
+
+@media (max-width: 480px) {
+    .close-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        top: max(12px, calc(var(--safe-top) + 12px));
+        right: max(12px, calc(var(--safe-right) + 12px));
+        border-width: 2px;
+    }
+}
+
+/* Remove hover effects on touch devices */
+@media (hover: none) {
+    .close-button:hover {
+        transform: none;
+        opacity: 0.8;
+    }
+
+    .close-button:active {
+        transform: scale(0.92);
+        opacity: 1;
+    }
 }
 
 /* Slide Base */
 .slide-container {
-    /* No longer needed fixed positioning as motion.div handles it, 
-       but we keep content centering styles if needed */
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.slide-container::-webkit-scrollbar {
+    display: none;
 }
 
 .slide-content {
-    /* Already handled in Slide.jsx with motion.div */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,4 +137,162 @@
     height: 100%;
     padding: 2rem;
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.slide-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Mobile responsive padding */
+@media (max-width: 768px) {
+    .slide-content {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-content {
+        padding: 1.25rem 0.75rem;
+    }
+}
+
+/* Landscape mobile adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .slide-content {
+        padding: 1rem 1.5rem;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .slide-content::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Touch Navigation Zones (Visual Debug - Remove in Production) */
+.story-view {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Left/Right tap zones for navigation */
+.tap-zone-left,
+.tap-zone-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 33.33%;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.tap-zone-left {
+    left: 0;
+}
+
+.tap-zone-right {
+    right: 0;
+    width: 66.67%;
+}
+
+/* Touch feedback ripple effect */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.touch-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+    animation: ripple 0.6s ease-out;
+    transform: translate(-50%, -50%);
+}
+
+/* Performance optimizations for slides */
+.slide-content > * {
+    will-change: opacity, transform;
+}
+
+/* Reduce animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+    .story-progress-bar-fill {
+        transition: width 0.1s linear !important;
+        animation: none !important;
+    }
+
+    .touch-ripple {
+        animation: none !important;
+        display: none;
+    }
+}
+
+/* Optimize for small screens */
+@media (max-width: 360px) {
+    .story-progress-container {
+        height: 2px;
+        gap: 2px;
+    }
+
+    .close-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .slide-content {
+        padding: 1rem 0.5rem;
+    }
+}
+
+/* Prevent content overflow on very small screens */
+@media (max-height: 600px) {
+    .slide-content {
+        padding-top: 3.5rem;
+        padding-bottom: 1rem;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .slide-content::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* iOS-specific optimizations */
+@supports (-webkit-touch-callout: none) {
+    .slide-content {
+        /* Account for iOS Safari bottom bar */
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Hardware acceleration for smoother animations */
+.slide-content,
+.story-progress-bar-fill,
+.close-button {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }

@@ -1,16 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;900&display=swap" rel="stylesheet">
-    <title>WhatsApp Chat Wrapped</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!doctype html>
+<html
+    lang="en"
+    style="overflow: hidden; scrollbar-width: none; -ms-overflow-style: none"
+>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        />
+        <meta name="theme-color" content="#2a0845" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;900&display=swap"
+            rel="stylesheet"
+        />
+        <title>WhatsApp Chat Wrapped</title>
+        <style>
+            html,
+            body,
+            #root {
+                overflow: hidden !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                height: 100vh !important;
+                width: 100vw !important;
+            }
+            html::-webkit-scrollbar,
+            body::-webkit-scrollbar,
+            #root::-webkit-scrollbar,
+            *::-webkit-scrollbar {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
+            }
+        </style>
+    </head>
+    <body
+        style="
+            overflow: hidden !important;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        "
+    >
+        <div
+            id="root"
+            style="
+                overflow: hidden !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+                height: 100vh;
+                width: 100vw;
+            "
+        ></div>
+        <script type="module" src="/src/main.jsx"></script>
+    </body>
 </html>
