@@ -130,13 +130,15 @@ const StoryView = ({ stats, onReset }) => {
                 width: "100vw",
                 overflow: "hidden",
                 position: "relative",
-                touchAction: "pan-y",
+                touchAction: "pan-x pan-y",
                 WebkitUserSelect: "none",
                 userSelect: "none",
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
                 padding: isMobile ? "1vh 0.5rem" : "2vh 1rem",
                 boxSizing: "border-box",
+                overscrollBehaviorY: "auto",
+                WebkitOverflowScrolling: "touch",
             }}
         >
             <div className="background-animate"></div>

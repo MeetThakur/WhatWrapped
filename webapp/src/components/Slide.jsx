@@ -108,7 +108,7 @@ const Slide = ({ children, active, duration = 8000, onNext }) => {
                     alignItems: "center",
                     justifyContent: "center",
                     padding: isMobile
-                        ? "clamp(2rem, 10vh, 2.5rem) clamp(0.75rem, 4vw, 1rem) clamp(0.5rem, 3vh, 0.75rem)"
+                        ? "clamp(2rem, 10vh, 2.5rem) clamp(0.75rem, 4vw, 1rem) clamp(2rem, 8vh, 3rem)"
                         : "2rem 1rem",
                     boxSizing: "border-box",
                     overflowY: "hidden",

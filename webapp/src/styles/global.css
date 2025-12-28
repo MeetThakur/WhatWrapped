@@ -45,12 +45,14 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     /* Mobile optimizations */
-    overflow: hidden;
-    overscroll-behavior: none;
-    touch-action: pan-y;
-    position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    overscroll-behavior-x: none;
+    touch-action: pan-x pan-y;
+    position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     /* Hide scrollbars */
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -91,8 +93,9 @@ html {
     overflow: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    padding-bottom: max(2rem, calc(env(safe-area-inset-bottom) + 1rem));
     box-sizing: border-box;
+    overscroll-behavior-y: auto;
 }
 
 .app-container::-webkit-scrollbar {
@@ -131,9 +134,17 @@ html {
     }
 }
 
-/* Prevent pull-to-refresh on mobile */
+/* Allow pull-to-refresh on mobile */
+html {
+    overscroll-behavior-y: auto;
+}
+
 body {
-    overscroll-behavior-y: contain;
+    overscroll-behavior-y: auto;
+}
+
+#root {
+    overscroll-behavior-y: auto;
 }
 
 /* Hide scrollbar but keep functionality */
