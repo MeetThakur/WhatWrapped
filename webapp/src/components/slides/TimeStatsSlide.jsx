@@ -163,8 +163,9 @@ const TimeStatsSlide = ({ active, onNext, stats }) => {
                     style={{
                         height: "220px",
                         width: "100%",
-                        marginTop: "2rem",
-                        padding: "0 1rem",
+                        marginTop: "1rem", // Reduced top margin
+                        marginLeft: "-10px", // Pull left slightly to offset padding
+                        width: "calc(100% + 20px)", // Make it slightly wider
                         boxSizing: "border-box"
                     }}
                 >

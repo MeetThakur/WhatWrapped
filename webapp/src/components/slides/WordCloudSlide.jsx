@@ -32,8 +32,7 @@ const WordCloudSlide = ({ active, onNext, stats }) => {
                     borderRadius: '24px',
                     border: '3px solid #000',
                     boxShadow: '6px 6px 0px rgba(0,0,0,1)',
-                    padding: '1.5rem',
-                    borderRadius: '24px'
+                    padding: '1.5rem'
                 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

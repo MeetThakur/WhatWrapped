@@ -55,8 +55,8 @@ const SessionSlide = ({ active, onNext, stats }) => {
                         style={{
                             display: "flex",
                             flexDirection: "column",
-                            gap: "1rem",
-                            marginBottom: "2rem",
+                            gap: "0.75rem",
+                            marginBottom: "1rem",
                         }}
                     >
                         {topSessions.slice(0, 3).map((session, index) => {
@@ -156,11 +156,11 @@ const SessionSlide = ({ active, onNext, stats }) => {
                     className="content-section"
                     style={{
                         display: "inline-block",
-                        padding: "1.5rem 3rem",
+                        padding: "1rem 2rem",
                         background: "var(--accent)", // Pop Yellow
-                        borderRadius: "20px",
+                        borderRadius: "16px",
                         border: "2px solid #000",
-                        boxShadow: "6px 6px 0px #000",
+                        boxShadow: "4px 4px 0px #000",
                         color: "#000"
                     }}
                     initial={{ scale: 0.8, opacity: 0 }}
@@ -169,7 +169,7 @@ const SessionSlide = ({ active, onNext, stats }) => {
                 >
                     <div
                         style={{
-                            fontSize: "3.5rem",
+                            fontSize: "2.5rem",
                             fontWeight: "900",
                             color: "#000",
                             lineHeight: 1,
@@ -180,11 +180,11 @@ const SessionSlide = ({ active, onNext, stats }) => {
                     </div>
                     <div
                         style={{
-                            fontSize: "1rem",
+                            fontSize: "0.85rem",
                             textTransform: "uppercase",
                             letterSpacing: "0.1em",
                             fontWeight: "bold",
-                            marginTop: "0.5rem"
+                            marginTop: "0.3rem"
                         }}
                     >
                         Days Active

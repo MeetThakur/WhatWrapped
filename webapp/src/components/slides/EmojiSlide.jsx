@@ -36,9 +36,9 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                     display: "flex",
                     alignItems: "flex-end",
                     justifyContent: "center",
-                    gap: "1rem",
-                    marginBottom: "2rem",
-                    height: "250px",
+                    gap: "0.75rem",
+                    marginBottom: "1rem",
+                    height: "200px",
                     padding: "0 0.5rem",
                 }}
             >
@@ -57,10 +57,10 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                     >
                         <motion.span
                             style={{
-                                fontSize: "3.5rem",
-                                filter: "drop-shadow(3px 3px 0px rgba(0,0,0,0.5))",
+                                fontSize: "2.5rem",
+                                filter: "drop-shadow(2px 2px 0px rgba(0,0,0,0.5))",
                             }}
-                            animate={{ y: [0, -6, 0] }}
+                            animate={{ y: [0, -4, 0] }}
                             transition={{
                                 repeat: Infinity,
                                 duration: 2.5,
@@ -131,10 +131,10 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                         </motion.div>
                         <motion.span
                             style={{
-                                fontSize: "4.5rem",
-                                filter: "drop-shadow(4px 4px 0px rgba(0,0,0,0.5))",
+                                fontSize: "3.5rem",
+                                filter: "drop-shadow(3px 3px 0px rgba(0,0,0,0.5))",
                             }}
-                            animate={{ y: [0, -8, 0] }}
+                            animate={{ y: [0, -6, 0] }}
                             transition={{ repeat: Infinity, duration: 2 }}
                         >
                             {topEmojis[0].emoji}
@@ -189,10 +189,10 @@ const EmojiSlide = ({ active, onNext, stats }) => {
                     >
                         <motion.span
                             style={{
-                                fontSize: "3rem",
-                                filter: "drop-shadow(3px 3px 0px rgba(0,0,0,0.5))",
+                                fontSize: "2.25rem",
+                                filter: "drop-shadow(2px 2px 0px rgba(0,0,0,0.5))",
                             }}
-                            animate={{ y: [0, -5, 0] }}
+                            animate={{ y: [0, -4, 0] }}
                             transition={{
                                 repeat: Infinity,
                                 duration: 3,

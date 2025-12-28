@@ -26,16 +26,16 @@ const ConversationStarterSlide = ({ active, onNext, stats }) => {
             <motion.h2
                 style={{
                     color: '#00FF9D',
-                    marginBottom: '2rem',
+                    marginBottom: '1rem',
                     textTransform: 'uppercase',
                     letterSpacing: '0.1em',
-                    fontSize: '1.2rem',
+                    fontSize: '1rem',
                     fontWeight: '900',
                     background: '#E6FFF5',
-                    padding: '0.5rem 1rem',
+                    padding: '0.4rem 0.8rem',
                     borderRadius: '12px',
                     border: '2px solid #000',
-                    boxShadow: '4px 4px 0px #000',
+                    boxShadow: '3px 3px 0px #000',
                     display: 'inline-block'
                 }}
                 initial={{ opacity: 0, y: -20 }}
@@ -48,51 +48,51 @@ const ConversationStarterSlide = ({ active, onNext, stats }) => {
             <motion.div
                 className="content-section"
                 style={{
-                    padding: '2rem',
-                    marginBottom: '2rem',
+                    padding: '1rem',
+                    marginBottom: '1rem',
                     textAlign: 'center',
                     background: '#fff',
                     border: '3px solid #000',
-                    boxShadow: '6px 6px 0px rgba(0,0,0,1)',
-                    borderRadius: '24px',
+                    boxShadow: '4px 4px 0px rgba(0,0,0,1)',
+                    borderRadius: '20px',
                 }}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.2, type: 'spring' }}
             >
                 <div style={{
-                    fontSize: '3rem',
+                    fontSize: '2rem',
                     fontWeight: 'bold',
                     fontFamily: 'var(--font-display)',
                     color: '#000',
-                    marginBottom: '0.5rem'
+                    marginBottom: '0.3rem'
                 }}>
                     {winner}
                 </div>
                 <div style={{
-                    fontSize: '1rem',
+                    fontSize: '0.85rem',
                     color: '#000',
                     fontWeight: 'bold',
-                    marginBottom: '1rem',
+                    marginBottom: '0.5rem',
                     background: '#00FF9D',
                     display: 'inline-block',
-                    padding: '0.2rem 1rem',
+                    padding: '0.15rem 0.75rem',
                     borderRadius: '50px',
                     border: '2px solid #000'
                 }}>
                     The Igniter 🚀
                 </div>
                 <div style={{
-                    fontSize: '4rem',
+                    fontSize: '3rem',
                     fontWeight: '900',
                     fontFamily: 'var(--font-display)',
                     color: '#000',
-                    textShadow: '4px 4px 0px #00FF9D'
+                    textShadow: '3px 3px 0px #00FF9D'
                 }}>
                     {winnerData.initiations}
                 </div>
                 <div style={{
-                    fontSize: '0.9rem',
+                    fontSize: '0.8rem',
                     fontWeight: 'bold',
                     color: '#000'
                 }}>
@@ -185,8 +185,8 @@ const ConversationStarterSlide = ({ active, onNext, stats }) => {
 
             <motion.p
                 style={{
-                    marginTop: '2rem',
-                    fontSize: '0.85rem',
+                    marginTop: '1rem',
+                    fontSize: '0.75rem',
                     opacity: 0.7,
                     textAlign: 'center',
                     fontWeight: 'bold',
