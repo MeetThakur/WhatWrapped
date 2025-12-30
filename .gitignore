@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
 dist
 dist-ssr
@@ -23,7 +24,12 @@ dist-ssr
 *.sln
 *.sw?
 
-# Data
+# Testing
+coverage
+
+# Environment variables
+.env
+.env.*
+!.env.example
 data.txt
 project.txt
-prject.txt
