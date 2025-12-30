@@ -17,7 +17,7 @@ const ConversationSlide = ({ stats }) => {
         >
              <h2 className="text-large" style={{ marginBottom: '3rem' }}>Deep Dives</h2>
              
-             <div className="responsive-grid-3">
+             <div className="responsive-grid-2">
              {/* Sessions */}
              <div className="stat-box center-all">
                 <MessageCircle size={24} color="var(--accent-color)" />
@@ -36,13 +36,25 @@ const ConversationSlide = ({ stats }) => {
                 </div>
              </div>
 
+             {/* Longest Silence */}
+             <div className="stat-box center-all">
+                <img src="https://api.iconify.design/lucide:moon.svg?color=%23fbbf24" alt="" style={{ width: 24, height: 24 }} />
+                <div>
+                    <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>{stats.conversations.longestSilence.days}d</div>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Longest Usage Gap</div>
+                    <div style={{ fontSize: '0.8rem', opacity: 0.5, marginTop: '0.25rem' }}>
+                        {stats.conversations.longestSilence.date ? new Date(stats.conversations.longestSilence.date).toLocaleDateString() : ''}
+                    </div>
+                </div>
+             </div>
+
              {/* Top 3 Longest Sessions */}
-             <div style={{ width: '100%', marginTop: '0rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', gridColumn: 'span 1' }}>
+             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', opacity: 0.8 }}>
                       <img src="https://api.iconify.design/lucide:flame.svg?color=%23f472b6" alt="" style={{ width: 20, height: 20 }} />
                       <span>Longest Marathon Chats</span>
                   </div>
-                  <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                  <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                       {stats.conversations.topSessions.map((s, i) => (
                            <div key={i} style={{ 
                                background: 'rgba(255,255,255,0.05)', 
@@ -59,18 +71,6 @@ const ConversationSlide = ({ stats }) => {
                       ))}
                   </div>
              </div>
-             </div>
-             
-             {/* Longest Silence - Separate row or grid */}
-             <div className="stat-box center-all" style={{ marginTop: '2rem' }}>
-                <img src="https://api.iconify.design/lucide:moon.svg?color=%23fbbf24" alt="" style={{ width: 24, height: 24 }} />
-                <div>
-                    <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>{stats.conversations.longestSilence.days}d</div>
-                    <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Longest Usage Gap</div>
-                    <div style={{ fontSize: '0.8rem', opacity: 0.5, marginTop: '0.25rem' }}>
-                        {stats.conversations.longestSilence.date ? new Date(stats.conversations.longestSilence.date).toLocaleDateString() : ''}
-                    </div>
-                </div>
              </div>
              
              <div style={{ marginTop: '4rem', fontStyle: 'italic', color: 'var(--text-secondary)', textAlign: 'center', fontSize: '0.9rem' }}>
