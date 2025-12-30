@@ -20,11 +20,11 @@ const WordsSlide = ({ stats }) => {
                 <div style={{ display: 'inline-flex', padding: '1rem', background: 'rgba(52, 211, 153, 0.2)', borderRadius: '50%', marginBottom: '1rem' }}>
                     <Type size={40} color="var(--accent-color)" />
                 </div>
-                <h2 style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>The Lingo</h2>
+                <h2 className="text-large" style={{ marginBottom: '0.5rem' }}>The Lingo</h2>
                 <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Defining the year in words</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
+            <div className="responsive-grid-2" style={{ alignItems: 'start' }}>
                 {/* Global Top 5 */}
                 <div>
                      <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', borderBottom: '2px solid var(--accent-color)', display: 'inline-block', paddingBottom: '0.5rem' }}>
@@ -38,12 +38,12 @@ const WordsSlide = ({ stats }) => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
                                 style={{ 
-                                 padding: '1rem 1.5rem', 
+                                 padding: '0.8rem 1.2rem', 
                                  background: i === 0 ? 'var(--accent-color)' : 'rgba(255,255,255,0.1)', 
                                  color: i === 0 ? '#000' : '#fff',
                                  fontWeight: i === 0 ? 'bold' : 'normal',
                                  borderRadius: '16px',
-                                 fontSize: i === 0 ? '1.8rem' : '1.2rem',
+                                 fontSize: i === 0 ? '1.5rem' : '1rem',
                                  flexGrow: i === 0 ? 0 : 1,
                                  textAlign: 'center'
                              }}>
@@ -58,23 +58,23 @@ const WordsSlide = ({ stats }) => {
                     <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', borderBottom: '2px solid #38bdf8', display: 'inline-block', paddingBottom: '0.5rem' }}>
                          Signatures
                     </h3>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                         {Object.keys(topWordsPerSender).slice(0, 2).map((sender, idx) => {
                              const tops = topWordsPerSender[sender].slice(0, 3);
                              if (!tops.length) return null;
 
                              return (
-                                 <div key={sender} style={{ background: 'rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '24px' }}>
-                                     <div style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '1rem', color: idx === 0 ? 'var(--accent-color)' : '#38bdf8' }}>
+                                 <div key={sender} style={{ background: 'rgba(255,255,255,0.05)', padding: '1.2rem', borderRadius: '24px' }}>
+                                     <div style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.8rem', color: idx === 0 ? 'var(--accent-color)' : '#38bdf8' }}>
                                          {sender}'s Vocabulary
                                      </div>
-                                     <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+                                     <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                                          {tops.map((t, i) => (
                                              <div key={t.item} style={{ 
                                                  background: 'rgba(0,0,0,0.3)', 
-                                                 padding: '0.5rem 1rem', 
+                                                 padding: '0.4rem 0.8rem', 
                                                  borderRadius: '12px',
-                                                 fontSize: '1rem',
+                                                 fontSize: '0.9rem',
                                                  border: i === 0 ? `1px solid ${idx === 0 ? 'var(--accent-color)' : '#38bdf8'}` : 'none'
                                               }}>
                                                  <span style={{ marginRight: '0.5rem' }}>{t.item}</span>

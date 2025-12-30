@@ -38,14 +38,14 @@ const TimeSlide = ({ stats }) => {
         style={{ width: '100%', maxWidth: '900px' }}
       >
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <h2 style={{ fontSize: '3rem' }}>Time & Rhythm</h2>
+          <h2 className="text-large">Time & Rhythm</h2>
           <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>
              You are most chatty around <span style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>{formatHour(mostActiveHour)}</span>.
           </p>
         </div>
 
         {/* Tabs */}
-        <div className="center-all" style={{ flexDirection: 'row', gap: '1rem', marginBottom: '2rem' }}>
+        <div className="center-all" style={{ flexDirection: 'row', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
             {['hourly', 'weekly', 'monthly'].map(tab => (
                 <button 
                     key={tab}
@@ -54,11 +54,12 @@ const TimeSlide = ({ stats }) => {
                         background: activeTab === tab ? 'var(--accent-color)' : 'rgba(255,255,255,0.1)',
                         color: activeTab === tab ? '#000' : '#fff',
                         border: 'none',
-                        padding: '0.5rem 1.5rem',
+                        padding: '0.5rem 1rem',
                         borderRadius: '99px',
                         cursor: 'pointer',
                         fontWeight: '600',
-                        textTransform: 'capitalize'
+                        textTransform: 'capitalize',
+                        fontSize: '0.9rem'
                     }}
                 >
                     {tab}
@@ -68,12 +69,13 @@ const TimeSlide = ({ stats }) => {
 
         {/* Chart Area */}
         <div style={{ 
-            height: '300px', 
+            height: '250px', 
             display: 'flex', 
             alignItems: 'flex-end', 
-            gap: activeTab === 'hourly' ? '4px' : '12px',
-            marginBottom: '4rem',
-            padding: '0 1rem'
+            gap: activeTab === 'hourly' ? '2px' : '8px',
+            marginBottom: '3rem',
+            padding: '0 0.5rem',
+            width: '100%'
         }}>
             <AnimatePresence mode="wait">
                 {data.map((count, i) => (
@@ -92,7 +94,8 @@ const TimeSlide = ({ stats }) => {
                             position: 'relative',
                             display: 'flex',
                             justifyContent: 'center',
-                            cursor: 'pointer'
+                            cursor: 'pointer',
+                            minWidth: activeTab === 'hourly' ? '4px' : '10px'
                         }}
                         title={`${labels[i]}: ${count} messages`}
                     >
@@ -109,14 +112,14 @@ const TimeSlide = ({ stats }) => {
                                     color: '#fff',
                                     padding: '4px 8px',
                                     borderRadius: '4px',
-                                    fontSize: '0.8rem',
+                                    fontSize: '0.7rem',
                                     whiteSpace: 'nowrap',
                                     pointerEvents: 'none',
                                     zIndex: 10,
                                     border: '1px solid rgba(255,255,255,0.2)'
                                 }}
                             >
-                                {count} msgs
+                                {count}
                             </motion.div>
                         )}
                         
@@ -125,8 +128,11 @@ const TimeSlide = ({ stats }) => {
                             <span style={{ 
                                 position: 'absolute', 
                                 bottom: '-25px', 
-                                fontSize: '0.8rem', 
-                                color: 'var(--text-secondary)' 
+                                fontSize: '0.7rem', 
+                                color: 'var(--text-secondary)',
+                                transform: labels.length > 7 ? 'rotate(-45deg)' : 'none',
+                                transformOrigin: 'top left',
+                                whiteSpace: 'nowrap'
                             }}>
                                 {labels[i]}
                             </span>
@@ -136,7 +142,7 @@ const TimeSlide = ({ stats }) => {
                              <span style={{ 
                                 position: 'absolute', 
                                 bottom: '-25px', 
-                                fontSize: '0.7rem', 
+                                fontSize: '0.6rem', 
                                 color: 'var(--text-secondary)',
                                 whiteSpace: 'nowrap'
                             }}>
@@ -148,26 +154,27 @@ const TimeSlide = ({ stats }) => {
             </AnimatePresence>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', width: '100%' }}>
              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', width: '100%' }}>
                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', opacity: 0.8 }}>
                       <CalendarDays size={20} color="#f59e0b" />
                       <span>Most Active Days</span>
                  </div>
-                 <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                 <div className="responsive-flex-row" style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                       {(stats.time.topBusiestDays || [stats.time.busiestDay]).map((d, i) => (
                            <div key={d.date} style={{ 
                                background: 'var(--card-bg)', 
-                               padding: '1rem 1.5rem', 
+                               padding: '0.8rem 1.2rem', 
                                borderRadius: '16px', 
                                display: 'flex', 
                                flexDirection: 'column',
                                alignItems: 'center', 
-                               gap: '0.5rem',
-                               border: i === 0 ? '1px solid #f59e0b' : '1px solid transparent'
+                               gap: '0.2rem',
+                               border: i === 0 ? '1px solid #f59e0b' : '1px solid transparent',
+                               minWidth: '100px'
                             }}>
-                                <div style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{d.date}</div>
-                                <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>{d.count} msgs</div>
+                                <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>{d.date}</div>
+                                <div style={{ fontSize: '0.7rem', opacity: 0.7 }}>{d.count} msgs</div>
                            </div>
                       ))}
                  </div>

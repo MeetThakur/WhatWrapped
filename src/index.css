@@ -119,3 +119,69 @@ h6 {
 .floating {
   animation: float 4s ease-in-out infinite;
 }
+
+/* --- Responsive Utilities --- */
+
+/* Typography */
+.text-huge {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.text-large {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.text-stat {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Grids & Layouts */
+.responsive-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.responsive-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.responsive-flex-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Desktop Overrides */
+@media (min-width: 768px) {
+  .text-huge { font-size: 6rem; }
+  .text-large { font-size: 3rem; margin-bottom: 3rem; }
+  .text-stat { font-size: 3.5rem; }
+  
+  .responsive-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .responsive-grid-2 { grid-template-columns: 1fr 1fr; }
+  
+  .responsive-flex-row {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+/* Mobile Tweak for Slide Padding */
+@media (max-width: 768px) {
+  .slide {
+    padding: 1rem;
+    height: auto; /* Allow scrolling if content overflows */
+    min-height: 100vh;
+  }
+}

@@ -54,10 +54,10 @@ const ParticipantsSlide = ({ stats }) => {
         className="content-card"
         style={{ width: '100%', maxWidth: '900px' }}
       >
-        <h2 style={{ fontSize: '3rem', marginBottom: '3rem', textAlign: 'center' }}>The Duo</h2>
+        <h2 className="text-large" style={{ textAlign: 'center' }}>The Duo</h2>
         
         {p2 ? (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div className="responsive-flex-row" style={{ gap: '1rem', alignItems: 'stretch' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem' }}>
                      <h3 style={{ fontSize: '2rem', color: 'var(--accent-color)' }}>{p1.name}</h3>
                      <h3 style={{ fontSize: '2rem', color: '#38bdf8' }}>{p2.name}</h3>

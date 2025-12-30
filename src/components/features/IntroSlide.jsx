@@ -25,18 +25,19 @@ const IntroSlide = ({ stats }) => {
           WhatsApp Wrapped
         </h2>
         
-        <h1 className="gradient-text" style={{ fontSize: '6rem', lineHeight: 1, marginBottom: '4rem' }}>
+        <h1 className="gradient-text text-huge" style={{ marginBottom: '4rem' }}>
           {year}
         </h1>
         
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2rem', width: '100%' }}>
+        <div className="responsive-grid-3">
             {/* Total Messages */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                  <motion.div 
                     initial={{ scale: 0.5, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.3, type: 'spring' }}
-                    style={{ fontSize: '3.5rem', fontWeight: 'bold', color: 'var(--accent-color)' }}
+                    className="text-stat"
+                    style={{ color: 'var(--accent-color)' }}
                 >
                     {(stats.overview.totalMessages || 0).toLocaleString()}
                 </motion.div>
@@ -49,7 +50,8 @@ const IntroSlide = ({ stats }) => {
                     initial={{ scale: 0.5, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.5, type: 'spring' }}
-                    style={{ fontSize: '3.5rem', fontWeight: 'bold', color: '#38bdf8' }}
+                    className="text-stat"
+                    style={{ color: '#38bdf8' }}
                 >
                     {(stats.overview.totalWords || 0).toLocaleString()}
                 </motion.div>
@@ -62,7 +64,8 @@ const IntroSlide = ({ stats }) => {
                     initial={{ scale: 0.5, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.7, type: 'spring' }}
-                    style={{ fontSize: '3.5rem', fontWeight: 'bold', color: '#fbbf24' }}
+                    className="text-stat"
+                    style={{ color: '#fbbf24' }}
                 >
                     {(stats.overview.totalEmojis || 0).toLocaleString()}
                 </motion.div>

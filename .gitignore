@@ -24,6 +24,6 @@ dist-ssr
 *.sw?
 
 # Data
-data
+data.txt
 project.txt
 prject.txt
