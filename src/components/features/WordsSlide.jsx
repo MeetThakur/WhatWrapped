@@ -24,7 +24,7 @@ const WordsSlide = ({ stats }) => {
                 <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Defining the year in words</p>
             </div>
 
-            <div className="responsive-grid-2" style={{ alignItems: 'start' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem', justifyContent: 'center', alignItems: 'flex-start' }}>
                 {/* Global Top 5 */}
                 <div>
                      <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', borderBottom: '2px solid var(--accent-color)', display: 'inline-block', paddingBottom: '0.5rem' }}>

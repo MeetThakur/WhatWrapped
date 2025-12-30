@@ -160,7 +160,7 @@ const TimeSlide = ({ stats }) => {
                       <CalendarDays size={20} color="#f59e0b" />
                       <span>Most Active Days</span>
                  </div>
-                 <div className="responsive-flex-row" style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                 <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
                       {(stats.time.topBusiestDays || [stats.time.busiestDay]).map((d, i) => (
                            <div key={d.date} style={{ 
                                background: 'var(--card-bg)', 
