@@ -15,7 +15,7 @@ const ConversationSlide = ({ stats }) => {
              className="content-card center-all"
              style={{ maxWidth: '800px', width: '100%' }}
         >
-             <h2 className="text-large" style={{ marginBottom: '3rem' }}>Deep Dives</h2>
+             <h2 className="text-large" style={{ marginBottom: '1.5rem' }}>Deep Dives</h2>
              
              <div className="responsive-grid-2">
              {/* Sessions */}

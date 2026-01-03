@@ -100,7 +100,7 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 /* Animations */
@@ -164,13 +164,24 @@ h6 {
 
 /* Desktop Overrides */
 @media (min-width: 768px) {
-  .text-huge { font-size: 6rem; }
-  .text-large { font-size: 3rem; margin-bottom: 3rem; }
-  .text-stat { font-size: 3.5rem; }
-  
-  .responsive-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
-  .responsive-grid-2 { grid-template-columns: 1fr 1fr; }
-  
+  .text-huge {
+    font-size: 6rem;
+  }
+  .text-large {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  .text-stat {
+    font-size: 3.5rem;
+  }
+
+  .responsive-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .responsive-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .responsive-flex-row {
     flex-direction: row;
     gap: 2rem;

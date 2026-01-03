@@ -24,7 +24,7 @@ const EmojiSlide = ({ stats }) => {
                 <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Expressing feelings without words</p>
             </div>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem', justifyContent: 'center', alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center', alignItems: 'flex-start' }}>
                 {/* Global Top 5 */}
                 <div>
                      <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', borderBottom: '2px solid #fbbf24', display: 'inline-block', paddingBottom: '0.5rem' }}>

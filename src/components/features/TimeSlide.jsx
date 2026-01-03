@@ -37,15 +37,15 @@ const TimeSlide = ({ stats }) => {
         whileInView={{ opacity: 1 }}
         style={{ width: '100%', maxWidth: '900px' }}
       >
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <h2 className="text-large">Time & Rhythm</h2>
+        <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+          <h2 className="text-large" style={{ marginBottom: '0.5rem' }}>Time & Rhythm</h2>
           <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>
              You are most chatty around <span style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>{formatHour(mostActiveHour)}</span>.
           </p>
         </div>
 
         {/* Tabs */}
-        <div className="center-all" style={{ flexDirection: 'row', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+        <div className="center-all" style={{ flexDirection: 'row', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
             {['hourly', 'weekly', 'monthly'].map(tab => (
                 <button 
                     key={tab}
