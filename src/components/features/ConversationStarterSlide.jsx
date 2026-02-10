@@ -92,7 +92,7 @@ const ConversationStarterSlide = ({ stats }) => {
             </div>
         ) : (
             <div style={{ fontSize: '1.5rem', opacity: 0.7 }}>
-                No long silences broken this year!
+                No long silences broken in this chat!
             </div>
         )}
       </motion.div>

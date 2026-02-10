@@ -3,9 +3,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const IntroSlide = ({ stats }) => {
-  const year = stats.overview.dateRange 
-    ? new Date(stats.overview.dateRange.start).getFullYear() 
-    : 'This Year';
+  const startDate = stats.overview.dateRange ? new Date(stats.overview.dateRange.start) : null;
+  const endDate = stats.overview.dateRange ? new Date(stats.overview.dateRange.end) : null;
+
+  let title = 'Chat History';
+  if (startDate && endDate) {
+      const startYear = startDate.getFullYear();
+      const endYear = endDate.getFullYear();
+      if (startYear === endYear) {
+          title = `${startYear}`;
+      } else {
+          title = `${startYear} - ${endYear}`;
+      }
+  }
+
     
   return (
     <div className="slide section-intro">
@@ -26,7 +37,7 @@ const IntroSlide = ({ stats }) => {
         </h2>
         
         <h1 className="gradient-text text-huge" style={{ marginBottom: '4rem' }}>
-          {year}
+          {title}
         </h1>
         
         <div className="responsive-grid-3">

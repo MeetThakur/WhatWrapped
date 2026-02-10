@@ -1,16 +1,35 @@
-# React + Vite
+# WhatsApp Wrapped
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application that analyzes your WhatsApp chat exports to generate a comprehensive "Wrapped" style summary of your chat history. discover your most active days, top words, emoji usage, and more!
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Activity Overview**: Total messages, words, emojis, and active days.
+- **Participant Stats**: Who talks the most? Who sends the longest messages?
+- **Time & Rhythm**: Hourly and weekly activity distribution.
+- **Conversation Starters**: Who breaks the silence?
+- **Word & Emoji Analysis**: Top used words and signature phrases.
+- **Responsive Design**: Optimized for both desktop and mobile viewing.
 
-## React Compiler
+## How to Use
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1.  **Export Chat**: Open a chat in WhatsApp -> More -> Export Chat -> Without Media.
+2.  **Upload**: Open the app and upload the exported `.txt` file.
+3.  **Explore**: Scroll through the generated slides to see your chat analysis.
 
-## Expanding the ESLint configuration
+## Local Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1.  Clone the repository.
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+4.  Open `http://localhost:5173` in your browser.
+
+## Privacy
+
+All analysis is done locally in your browser. Your chat data is never uploaded to any server.

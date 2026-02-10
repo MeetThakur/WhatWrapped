@@ -30,7 +30,7 @@ const ActivitySlide = ({ stats }) => {
                 <h3 style={{ fontSize: '2.5rem', marginTop: '1rem' }}>{activeDays}</h3>
                 <p style={{ color: 'var(--text-secondary)' }}>Active Days</p>
                 <p style={{ fontSize: '0.9rem', marginTop: '0.5rem', opacity: 0.7 }}>
-                    That's {activePercentage}% of the year!
+                    That's {activePercentage}% of the time!
                 </p>
             </div>
 

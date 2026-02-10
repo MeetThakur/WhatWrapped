@@ -19,15 +19,13 @@ export const calculateStats = (messages, currentUser) => {
   };
 
   // --- Helper Sets & Maps ---
-  const targetYear = 2025;
-  const filteredMessages = messages.filter(msg => msg.timestamp && msg.timestamp.getFullYear() === targetYear);
+  // No filtering by year anymore - use all messages
+  // const targetYear = 2025; 
+  // const filteredMessages = messages.filter(msg => msg.timestamp && msg.timestamp.getFullYear() === targetYear);
+  const filteredMessages = messages; 
   
   if (filteredMessages.length === 0) {
-      // Fallback or empty return if no 2025 data
-      // For now, let's return a stats object with zeros to prevent crashes, 
-      // or we can fallback to *all* data if strictly needed, but user asked for "just 2025".
-      // Let's stick to returning "empty" stats or null to trigger a "No Data for 2025" UI if we had one.
-      // But preserving structure is safer for current UI.
+    
       return {
           overview: { totalMessages: 0, activeDays: 0, activePercentage: 0, messagesPerActiveDay: 0, longestStreak: 0, dateRange: null },
           participants: { total: 0, list: [], mostActive: 'N/A' },
@@ -104,9 +102,9 @@ export const calculateStats = (messages, currentUser) => {
   const lastMessageDate = filteredMessages[filteredMessages.length - 1].timestamp;
   
   // --- Section 1: Activity Overview ---
-  // Percentage of year active (approx 365 days)
+  // Percentage of total time active
   const totalDaysSpan = (lastMessageDate - firstMessageDate) / (1000 * 60 * 60 * 24) || 1;
-  const activePercentage = (activeDays / 365) * 100; // Rough calc for "year"
+  const activePercentage = (activeDays / (totalDaysSpan < 1 ? 1 : totalDaysSpan)) * 100; // Calc based on actual span
 
   // Longest active streak
   let currentStreak = 0;

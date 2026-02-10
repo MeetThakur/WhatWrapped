@@ -16,7 +16,7 @@ const ConclusionSlide = ({ onReset }) => {
            That's a Wrap!
          </h1>
          <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '3rem', maxWidth: '600px' }}>
-            Your year in text was full of moments. Here's to many more conversations!
+            Your chat history in text was full of moments. Here's to many more conversations!
          </p>
 
          <button className="btn-primary" onClick={onReset} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

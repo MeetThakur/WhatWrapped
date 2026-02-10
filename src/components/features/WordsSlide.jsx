@@ -21,7 +21,7 @@ const WordsSlide = ({ stats }) => {
                     <Type size={40} color="var(--accent-color)" />
                 </div>
                 <h2 className="text-large" style={{ marginBottom: '0.5rem' }}>The Lingo</h2>
-                <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Defining the year in words</p>
+                <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Defining the chat in words</p>
             </div>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center', alignItems: 'flex-start' }}>
